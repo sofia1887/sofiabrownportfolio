@@ -119,10 +119,13 @@ document.querySelectorAll('.project-card').forEach(card => {
     });
 });
 
-// Supabase configuration
-const supabaseUrl = 'https://fpwyaelavxomvcuwtxlu.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZwd3lhZWxhdnhvbXZjdXd0eGx1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTkwMDk4MDEsImV4cCI6MjA3NDU4NTgwMX0.UDhYKbb13p8yRjLUgZiuA3fZmueIDHUAr0bWpFhxRWc';
-const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+// EmailJS configuration
+const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID'; // Replace with your EmailJS service ID
+const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID'; // Replace with your EmailJS template ID
+const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY'; // Replace with your EmailJS public key
+
+// Initialize EmailJS
+emailjs.init(EMAILJS_PUBLIC_KEY);
 
 // Contact form handling
 const contactForm = document.querySelector('.contact-form');
@@ -158,26 +161,27 @@ if (contactForm) {
         submitBtn.disabled = true;
         
         try {
-            // Insert data into Supabase
-            const { data, error } = await supabase
-                .from('contact_messages')
-                .insert([
-                    {
-                        name: name,
-                        email: email,
-                        subject: subject,
-                        message: message,
-                        created_at: new Date().toISOString()
-                    }
-                ]);
+            // Send email using EmailJS
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                subject: subject,
+                message: message,
+                to_email: 'sofiabrown1003@gmail.com' // Your email address
+            };
             
-            if (error) {
-                throw error;
+            const response = await emailjs.send(
+                EMAILJS_SERVICE_ID,
+                EMAILJS_TEMPLATE_ID,
+                templateParams
+            );
+            
+            if (response.status === 200) {
+                showMessage('Thank you for your message! I\'ll get back to you soon.', 'success');
+                this.reset();
+            } else {
+                throw new Error('Email sending failed');
             }
-            
-            // Success
-            showMessage('Thank you for your message! I\'ll get back to you soon.', 'success');
-            this.reset();
             
         } catch (error) {
             console.error('Error:', error);
