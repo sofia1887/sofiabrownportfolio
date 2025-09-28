@@ -223,8 +223,8 @@ body {
 }
 
 .profile-card {
-    width: 250px;
-    height: 250px;
+    width: 320px;
+    height: 320px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -234,8 +234,8 @@ body {
 .profile-image {
     width: auto;
     height: auto;
-    max-width: 300px;
-    max-height: 400px;
+    max-width: 350px;
+    max-height: 450px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -382,8 +382,8 @@ section {
 .about-profile-image {
     width: auto;
     height: auto;
-    max-width: 300px;
-    max-height: 400px;
+    max-width: 350px;
+    max-height: 450px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -654,13 +654,13 @@ section {
     }
     
     .profile-card {
-        width: 280px;
-        height: 280px;
+        width: 300px;
+        height: 300px;
     }
     
     .profile-image {
-        width: 220px;
-        height: 220px;
+        width: 250px;
+        height: 250px;
     }
 }
 
@@ -760,21 +760,21 @@ section {
     }
 
     .profile-card {
-        width: 250px;
-        height: 250px;
+        width: 280px;
+        height: 280px;
         padding: 10px;
         margin: 0 auto;
     }
 
     .profile-image {
-        width: 200px;
-        height: 200px;
+        width: 240px;
+        height: 240px;
         margin: 0 auto;
     }
 
     .about-profile-image {
-        max-width: 250px;
-        max-height: 300px;
+        max-width: 300px;
+        max-height: 350px;
         margin: 0 auto;
     }
 }
@@ -839,21 +839,21 @@ section {
     }
 
     .profile-card {
-        width: 200px;
-        height: 200px;
+        width: 240px;
+        height: 240px;
         padding: 8px;
         margin: 0 auto;
     }
 
     .profile-image {
-        width: 180px;
-        height: 180px;
+        width: 220px;
+        height: 220px;
         margin: 0 auto;
     }
 
     .about-profile-image {
-        max-width: 200px;
-        max-height: 250px;
+        max-width: 250px;
+        max-height: 300px;
         margin: 0 auto;
     }
 
@@ -894,20 +894,20 @@ section {
     }
 
     .profile-card {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+    }
+
+    .profile-image {
         width: 180px;
         height: 180px;
         margin: 0 auto;
     }
 
-    .profile-image {
-        width: 160px;
-        height: 160px;
-        margin: 0 auto;
-    }
-
     .about-profile-image {
-        max-width: 180px;
-        max-height: 220px;
+        max-width: 220px;
+        max-height: 280px;
         margin: 0 auto;
     }
 
